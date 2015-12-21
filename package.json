@@ -1,0 +1,29 @@
+{
+  "name": "subschema-loader",
+  "version": "1.0.0",
+  "description": "Subschema Loader",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/*-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subschema/subschema-loader.git"
+  },
+  "keywords": [
+    "Subschema"
+  ],
+  "author": "Justin Spears",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subschema/subschema-loader/issues"
+  },
+  "homepage": "https://github.com/subschema/subschema-loader#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "expect": "^1.13.4",
+    "mocha": "^2.3.4"
+  }
+}
