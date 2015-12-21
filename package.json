@@ -1,14 +1,14 @@
 {
-  "name": "subschema-loader",
+  "name": "subschema-factory",
   "version": "1.0.0",
-  "description": "Subschema Loader",
+  "description": "Subschema Factory",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha test/*-test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/subschema/subschema-loader.git"
+    "url": "git+https://github.com/subschema/subschema-factory.git"
   },
   "keywords": [
     "Subschema"
@@ -16,9 +16,9 @@
   "author": "Justin Spears",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/subschema/subschema-loader/issues"
+    "url": "https://github.com/subschema/subschema-factory/issues"
   },
-  "homepage": "https://github.com/subschema/subschema-loader#readme",
+  "homepage": "https://github.com/subschema/subschema-factory#readme",
   "dependencies": {
     "lodash": "^3.10.1"
   },
