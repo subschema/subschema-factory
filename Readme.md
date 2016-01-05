@@ -11,7 +11,7 @@ Simple injector for use with subschema.
 ```js
   var DefaultLoader = require('Subschema').DefaultLoader;
   var PropTypes = require('Subschema').PropTypes;
-  var loaderFactory = require('loader-factory');
+  var loaderFactory = require('loader-factory').loaderFactory;
   var loader = loaderFactory([DefaultLoader], PropTypes);
 
   loader.addType({
