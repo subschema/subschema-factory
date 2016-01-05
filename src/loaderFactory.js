@@ -1,3 +1,5 @@
+"use strict";
+
 var isArray = require('lodash/lang/isArray');
 var isFunction = require('lodash/lang/isFunction');
 var isString = require('lodash/lang/isString');

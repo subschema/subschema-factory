@@ -1,7 +1,7 @@
 var loaderFactory = require('./loaderFactory');
 var warning = require('./warning');
 var api = {
-    loaderFactory,
-    warning
+    loaderFactory: loaderFactory,
+    warning: warning
 };
 module.exports = api;
