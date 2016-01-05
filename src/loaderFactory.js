@@ -6,9 +6,9 @@ var warning = require('./warning');
 var concat = Function.apply.bind(Array.prototype.concat, []);
 
 module.exports = function loaderFactory(loaders, PropTypes) {
-    loaders = loaders || [];
+    loaders = loaders ? Array.isArray(loaders) ? loaders : [loaders] : [];
 
-    var types = {load, list, add},
+    var types = {load: load, list: list, add: add},
         api = {
             /**
              * @param template String - looks for a template named something.
@@ -38,7 +38,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
             loadOperator: load('Operator'),
             listOperators: list('Operator'),
 
-            addLoader(loader){
+            addLoader: function addLoader(loader) {
                 if (isArray(loader)) {
                     return loader.map(function (v) {
                         return this.addLoader(v);
@@ -58,7 +58,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
                 loaders.unshift(loader);
                 return loader;
             },
-            removeLoader(loader){
+            removeLoader: function removeLoader(loader) {
                 var idx = loaders.indexOf(loader);
                 if (0 > idx) {
                     return;
@@ -69,8 +69,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
                 }
                 return ret;
             },
-
-            clearLoaders(){
+            clearLoaders: function clearLoaders() {
                 var ret = loaders.concat();
                 loaders.length = 0;
                 return ret;
@@ -114,7 +113,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
             }
             _api[listKey] = function () {
                 return Object.keys(map).map(function (name) {
-                    var ret = {name};
+                    var ret = {name: name};
                     ret[lcType] = map[name];
                     return ret;
                 });
@@ -146,8 +145,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
 
         //If it has a type init it
         if (v.type) {
-            var validator = this.loadValidator(v.type);
-            return validator(v);
+            return this.loadValidator(v.type)(v);
         }
 
         //If its a function just return it.
@@ -205,7 +203,7 @@ module.exports = function loaderFactory(loaders, PropTypes) {
         } else {
             return function noPropTypesWarning(propType, value) {
                 warning(PropTypes, 'No propTypes supplied to loader');
-            }
+            };
         }
     }());
     return api;
